@@ -1,13 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, request, Response
 import pymysql
 import json
+import os
 
 app = Flask(__name__)
 
 c_info = {
-    "host": "user-service-db.ci3ta0leimzm.us-east-2.rds.amazonaws.com",
-    "user": "admin",
-    "password": "12345678",
+    "host": os.environ['rds_host'],
+    "user": os.environ['rds_user'],
+    "password": os.environ['rds_password'],
     "cursorclass": pymysql.cursors.DictCursor,
 }
 

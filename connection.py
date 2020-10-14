@@ -17,3 +17,16 @@ res = cur.fetchall()
 
 print(f"database: {json.dumps(res, indent=4, default=str)}")
 
+
+# next show table in schema. 
+
+query_text = """
+select *
+from rds_user_service.Users;
+"""
+
+res = cur.execute(query_text)
+res = cur.fetchall()
+
+print(f"query result: {json.dumps(res, indent=4, default=str)}")
+

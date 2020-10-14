@@ -3,6 +3,7 @@ import pymysql
 import json
 import logging
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 
@@ -11,9 +12,9 @@ logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
 c_info = {
-    "host": "user-service-db.ci3ta0leimzm.us-east-2.rds.amazonaws.com",
-    "user": "admin",
-    "password": "12345678",
+    "host": os.environ['rds_host'],
+    "user": os.environ['rds_user'],
+    "password": os.environ['rds_password'],
     "cursorclass": pymysql.cursors.DictCursor,
 }
 
